@@ -13,12 +13,24 @@ render(app, {
     viewExt: "html",
 });
 
+app.use(async (ctx, next) => {
+    try {
+        await next();
+    } catch (err) {
+        console.error(err);
+        ctx.body = "Ops, something wrong happened:<br>" + err.message;
+    }
+});
+
 router.get("hello", "/", (ctx) => {
     ctx.body = "<h1>Hello World, Koa folks!</h1>";
 });
 
 router.get("users", "/users", async (ctx) => {
     const result = await axios.get("https://randomuser.me/api?results=5");
+
+    // invalid URL to cause error
+    // const result = await axios.get("https://randomuser.meep/api?results=5");
 
     return ctx.render("index", {
         users: result.data.results,

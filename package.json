@@ -1,0 +1,25 @@
+{
+  "name": "koa-first-steps",
+  "version": "1.0.0",
+  "description": "Trying koa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yokall/koa-first-steps.git"
+  },
+  "author": "Colin Campbell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yokall/koa-first-steps/issues"
+  },
+  "homepage": "https://github.com/yokall/koa-first-steps#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "koa": "^2.13.0",
+    "koa-ejs": "^4.3.0",
+    "koa-router": "^9.4.0"
+  }
+}

@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>First Steps with Koa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">Koa.js</h1>
+            <p class="lead">
+                A simple list of users retrieved from
+                <a href="https://randomuser.me/">randomuser.me</a>
+            </p>
+        </div>
+
+        <div class="list-group">
+            <% users.forEach( function(user) { %>
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">
+                        <%= user.name.title %> <%= user.name.first %> <%= user.name.last
+                            %>
+                    </h5>
+                    <small>Registered at: <%= new
+                            Date(user.registered.date).toISOString().split('T')[0] %></small>
+                </div>
+                <p class="mb-1">
+                    <strong>Address:</strong>
+                    <%= user.location.street.number %> <%= user.location.street.name
+                        %>, <%= user.location.city %> <%= user.location.postcode %> - <%=
+                        user.location.country %>
+                </p>
+                <small>Phone: <%= user.phone %></small>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+
+</html>

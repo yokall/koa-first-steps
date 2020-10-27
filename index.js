@@ -3,9 +3,14 @@ const path = require("path");
 const render = require("koa-ejs");
 const koaRouter = require("koa-router");
 const axios = require("axios");
+const Logger = require("koa-logger");
 
 const app = new koa();
 const router = new koaRouter();
+
+app.use(Logger())
+    .use(router.routes())
+    .use(router.allowedMethods());
 
 render(app, {
     root: path.join(__dirname, "views"),
